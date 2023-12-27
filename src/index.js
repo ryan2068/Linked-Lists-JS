@@ -18,6 +18,31 @@ class LinkedList {
         current.next = new Node(data)
     }
 
+    insertAt(data, index) {
+        const node =  new Node(data)
+        let current = this.head
+        let previous
+        let count = 0
+        while (count < index) {
+            previous = current
+            count++
+            current = current.next
+        }
+        node.next = current
+        previous.next = node
+    }
+
+    getAt(index) {
+        let current = this.head
+        let count = 0
+        while (current) {
+            if (count === index) {
+                console.log(current.data)
+            }
+            count += 1
+            current = current.next
+        }
+    }
 
     toString() {
         let current = this.head
@@ -36,6 +61,8 @@ ll.insertFirst(200)
 ll.insertFirst(300)
 
 ll.insertLast(400)
+
+ll.getAt(0)
 
 ll.toString()
 
